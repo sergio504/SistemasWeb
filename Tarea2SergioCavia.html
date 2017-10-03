@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tarea2 Sergio Cavia</title>
+        </head>
+    
+    
+    <body>
+        <H1>Tarea2 Sergio Cavia </H1>
+        <form action="prog.php" method="post" name="formulario" id="formulario">
+            <p>Introduce una operacion entre dos numeros enteros</p> 
+            <input type="int" name="numero1" id="numero1">
+            <select name="operaciones" id="operaciones" size="1">
+                <option>mas</option>
+                <option>menos</option>
+                <option>por</option>
+                <option>entre</option>
+            </select>
+	        <input type="int" name="numero2" id="numero2">
+            <p>Introduce valor esperado</p>
+            <input type="int" name= "numeroEsperado" id="numeroEsperado">  
+            <br>
+            <br>
+        <INPUT type="button" value="Comprobar resultado" id="comprobar" name ="comprobar">
+        <INPUT type="reset" value="Limpiar">
+        <br>
+        <br>
+        <input type="text"  name="correccion" id="correccion" readonly="readonly">
+        </form>
+        
+        
+        <script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+        $("#comprobar").click (function(){
+            var operando1 = $("#numero1").val();
+            var operando2 = $("#numero2").val();
+            var operacion = $("#operaciones").val();
+            var resultado = 0;
+        
+            switch(operacion) {
+                case "mas":
+                    resultado = parseInt(operando1) + parseInt(operando2);
+                    break;
+                case "menos":
+                    resultado = operando1 - operando2;
+                    break;
+                case "por":
+                    resultado = operando1*operando2;
+                    break;
+                case "entre":
+                    resultado = operando1/operando2;
+                    break;
+                default:
+                }
+                coinciden(resultado);
+});
+
+function coinciden(resultado){
+ var resultadoEsperado = $("#numeroEsperado").val();
+    if (resultado == resultadoEsperado){
+        $("#correccion").val("Correcto");
+        $("#correccion").css("color", "green");
+    }else{
+        $("#correccion").val("Incorrecto");
+         $("#correccion").css("color", "red");
+
+    }
+    $("#correccion").css("font-weight","bolder");
+    
+}
+
+</script>
+
+      
+        
+    </body>
+</html>

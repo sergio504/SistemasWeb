@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tarea1 Sergio  Cavia</title>
+    </head>
+    
+    
+    <body>
+        <H1>Tarea1 Sergio Cavia</H1>
+        <form name="formulario" id="formulario">
+            <p>Introduce operación entre dos numeros enteros</p>
+            <input type="int" name="numero1" id="numero1">
+            <select name="operaciones" id="operaciones" size="1">
+                <option>mas</option>
+                <option>menos</option>
+                <option>por</option>
+                <option>entre</option>
+            </select>
+	        <input type="int" name="numero2" id="numero2">
+            
+            <p>Introduce valor esperado</p>
+            <input type="int" name= "numeroEsperado" id="numeroEsperado">  
+            <br>
+            <br>
+            <INPUT type="button" value="Comprobar resultado" onClick = "comprobar()">
+        <INPUT type="reset" value="Limpiar">
+        <br>
+        <br>
+        
+        <input type="text"  name="correccion" id="correccion" readonly="readonly">
+        </form>
+        
+        
+        <script language="javascript">
+        function comprobar(){
+        var operando1 = document.formulario.numero1.value;
+        var operando2 = document.formulario.numero2.value;
+        var operacion = document.formulario.operaciones.value;
+        var resultado = 0;
+        
+        switch(operacion) {
+    case "mas":
+        resultado = parseInt(operando1) + parseInt(operando2);
+        break;
+    case "menos":
+        resultado = operando1 - operando2;
+        break;
+    case "por":
+        resultado = operando1*operando2;
+        break;
+    case "entre":
+        resultado = operando1/operando2;
+        break;
+    default:
+        }
+   
+   coinciden(resultado);
+}
+
+function coinciden(resultado){
+    resultadoEsperado = document.formulario.numeroEsperado.value;
+
+    if (resultado == resultadoEsperado){
+        document.formulario.correccion.value = "¡CORRECTO!";
+    }else{
+        document.formulario.correccion.value = "¡INCORRECTO!";
+    }
+
+}
+
+</script>
+
+      
+        
+    </body>
+</html>
